@@ -23,18 +23,29 @@ window.addEventListener('DOMContentLoaded', function () {
             timerHours.textContent = timer.hours;
             timerMinutes.textContent = timer.minutes;
             timerSeconds.textContent = timer.seconds;
-            console.log(typeof timerHours);
+            console.log(timerHours.textContent.length);
 
 
             if (timer.timeRemaining > 0) {
                 setTimeout(updateClock, 1000);
-                // if (timerHours < 0 || timerMinutes < 0 || timerSeconds < 0) {
-                //
-                // }
+                if (timerHours.textContent.length <= 1) {
+                    timerHours.textContent = '0' + timer.hours;
+                }
+                if (timerMinutes.textContent.length <= 1) {
+                    timerMinutes.textContent = '0' + timer.minutes;
+                }
+                if (timerSeconds.textContent.length <= 1) {
+                    timerSeconds.textContent = '0' + timer.seconds;
+                }
+
+            } else if (timer.timeRemaining <= 0) {
+                timerHours.textContent = '00';
+                timerMinutes.textContent = '00';
+                timerSeconds.textContent = '00';
             }
         }
         updateClock ();
     }
 
-    countTimer('10 november 2019')
+    countTimer('10 november 2019');
 });
