@@ -65,7 +65,6 @@ const createTime = () => {
 createTime();
 
 
-
 //До Нового Года!
 const beforeNY = (deadline) => {
     let dateStop = new Date(deadline).getTime(),
