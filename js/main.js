@@ -44,4 +44,78 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     countTimer('11 november 2019');
+
+
+
+
+
+    //меню
+
+    const toggleMenu = () => {
+        const btnMenu = document.querySelector('.menu'),
+            menu = document.querySelector('menu'),
+            closeBtn = document.querySelector('.close-btn'),
+            menuItems = menu.querySelectorAll('ul>li');
+
+        const handlerMenu = () => {
+            menu.classList.toggle('active-menu');
+
+
+            /*if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
+                menu.style.transform = `translate(0)`;
+            } else {
+                menu.style.transform = `translate(-100%)`;
+            }*/
+
+        };
+        btnMenu.addEventListener('click', handlerMenu);
+        closeBtn.addEventListener('click', handlerMenu);
+
+        /*for(let i = 0; i < menuItems.length; i++) {
+            menuItems[i].addEventListener('click', () => {
+                handlerMenu();
+            });
+        }*/
+        menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
+    };
+
+    toggleMenu();
+
+
+
+    //popup
+
+    const togglePopup = () => {
+        const popup = document.querySelector('.popup'),
+            popupContent = document.querySelector('.popup-content'),
+            popupBtn = document.querySelectorAll('.popup-btn'),
+            popupClose = document.querySelector('.popup-close'),
+            screenWidth = document.documentElement.clientWidth;
+        let count = 0;
+        console.log(screenWidth);
+
+
+        popupBtn.forEach((elem) => {
+            elem.addEventListener('click', () => {
+                popup.style.display = 'block';
+                if (screenWidth > 768) {
+                    let popupDown = function() {
+                        count++;
+                        popupContent.style.top = count + 'px';
+                        if (count < 100) {
+                            setTimeout(popupDown, 1);
+                        }
+                    };
+                    popupDown();
+                }
+            });
+        });
+
+        popupClose.addEventListener('click', () => {
+            popup.style.display = 'none';
+        });
+    };
+    togglePopup();
+    console.log(screen.width);
 });
+
