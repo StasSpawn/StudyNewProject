@@ -1,6 +1,11 @@
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    const screenWidth = document.documentElement.clientWidth;
+    let screenWidth;
+    window.onresize = function(event) {
+        screenWidth = document.documentElement.clientWidth;
+        console.log(1);
+    };
+
     //timer
     let timerHours = document.querySelector('#timer-hours'),
         timerMinutes = document.querySelector('#timer-minutes'),
@@ -62,6 +67,8 @@ window.addEventListener('DOMContentLoaded', function () {
             menu.classList.toggle('active-menu');
             if (screenWidth < 768) {
                 menu.style.transition = 'none';
+            } else {
+                menu.style.transition = '1s';
             }
 
 
@@ -73,7 +80,11 @@ window.addEventListener('DOMContentLoaded', function () {
 
         };
         btnMenu.addEventListener('click', handlerMenu);
-        closeBtn.addEventListener('click', handlerMenu);
+        closeBtn.addEventListener('click', () => {
+            handlerMenu();
+            setTimeout(menu.style.transition = '', 1000);
+
+        });
 
         /*for(let i = 0; i < menuItems.length; i++) {
             menuItems[i].addEventListener('click', () => {
