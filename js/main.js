@@ -1,5 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
+    const screenWidth = document.documentElement.clientWidth;
     //timer
     let timerHours = document.querySelector('#timer-hours'),
         timerMinutes = document.querySelector('#timer-minutes'),
@@ -59,6 +60,9 @@ window.addEventListener('DOMContentLoaded', function () {
 
         const handlerMenu = () => {
             menu.classList.toggle('active-menu');
+            if (screenWidth < 768) {
+                menu.style.transition = 'none';
+            }
 
 
             /*if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
@@ -89,8 +93,7 @@ window.addEventListener('DOMContentLoaded', function () {
         const popup = document.querySelector('.popup'),
             popupContent = document.querySelector('.popup-content'),
             popupBtn = document.querySelectorAll('.popup-btn'),
-            popupClose = document.querySelector('.popup-close'),
-            screenWidth = document.documentElement.clientWidth;
+            popupClose = document.querySelector('.popup-close');
         let count = 0;
         console.log(screenWidth);
 
