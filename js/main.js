@@ -70,15 +70,15 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
         //Этот работает, но какая-то каша.
-        menu.addEventListener('click', () => {
+       /* menu.addEventListener('click', () => {
             if (event.target.tagName === 'A') {
                 handlerMenu(event);
             }
-        });
+        });*/
 
         //Этот код не работает
-        let target = event.target;
-        menu.addEventListener('click', () => {
+        menu.addEventListener('click', event => {
+            const target = event.target;
             if (target.tagName === 'A') {
                 handlerMenu(event);
             }
