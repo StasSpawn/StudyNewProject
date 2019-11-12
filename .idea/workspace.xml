@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="352f4a4b-b6b3-4f35-bc16-f568f7875379" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/style.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,7 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="lesson12" />
+        <entry key="$PROJECT_DIR$" value="lesson13" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,7 +61,8 @@
       <workItem from="1573473980112" duration="3965000" />
       <workItem from="1573493198753" duration="2880000" />
       <workItem from="1573501086108" duration="628000" />
-      <workItem from="1573509053165" duration="601000" />
+      <workItem from="1573509053165" duration="1246000" />
+      <workItem from="1573568475383" duration="8130000" />
     </task>
     <task id="LOCAL-00001" summary="lesson 12">
       <created>1573323367351</created>
@@ -102,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573501702780</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="lesson 13">
+      <created>1573509688997</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1573509688997</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

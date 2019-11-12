@@ -1,9 +1,9 @@
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
     let screenWidth;
-    window.onresize = function(event) {
+    window.onresize = function() {
         screenWidth = document.documentElement.clientWidth;
-        console.log(1);
+        console.log('Произошло изменение разрешения экрана');
     };
 
     //timer
@@ -20,7 +20,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 seconds = Math.floor(timeRemaining % 60),
                 minutes = Math.floor(timeRemaining / 60) % 60,
                 hours = Math.floor(timeRemaining / 60 / 60);
-            console.log('Запуск таймера');
+            // console.log('Запуск таймера');
             return {timeRemaining, hours, minutes, seconds};
         }
         function updateClock () {
@@ -44,16 +44,10 @@ window.addEventListener('DOMContentLoaded', function () {
                 timerSeconds.textContent = '00';
             }
         }
-
         updateClock ();
         setInterval(updateClock, 1000);
     }
-
     countTimer('11 november 2019');
-
-
-
-
 
     //меню
 
@@ -62,7 +56,6 @@ window.addEventListener('DOMContentLoaded', function () {
             menu = document.querySelector('menu'),
             closeBtn = document.querySelector('.close-btn'),
             menuItems = menu.querySelectorAll('ul>li');
-
         const handlerMenu = () => {
             menu.classList.toggle('active-menu');
             if (screenWidth < 768) {
@@ -70,28 +63,28 @@ window.addEventListener('DOMContentLoaded', function () {
             } else {
                 menu.style.transition = '1s';
             }
-
-
-            /*if (!menu.style.transform || menu.style.transform === `translate(-100%)`) {
-                menu.style.transform = `translate(0)`;
-            } else {
-                menu.style.transform = `translate(-100%)`;
-            }*/
-
         };
         btnMenu.addEventListener('click', handlerMenu);
-        closeBtn.addEventListener('click', () => {
-            handlerMenu();
-            setTimeout(menu.style.transition = '', 1000);
+        // closeBtn.addEventListener('click', handlerMenu);
+        // menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
 
+
+        //Этот работает, но какая-то каша.
+        menu.addEventListener('click', () => {
+            if (event.target.tagName === 'A') {
+                handlerMenu(event);
+            }
         });
 
-        /*for(let i = 0; i < menuItems.length; i++) {
-            menuItems[i].addEventListener('click', () => {
-                handlerMenu();
-            });
-        }*/
-        menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
+        //Этот код не работает
+        let target = event.target;
+        menu.addEventListener('click', () => {
+            if (target.tagName === 'A') {
+                handlerMenu(event);
+            }
+        });
+
+
     };
 
     toggleMenu();
@@ -103,10 +96,8 @@ window.addEventListener('DOMContentLoaded', function () {
     const togglePopup = () => {
         const popup = document.querySelector('.popup'),
             popupContent = document.querySelector('.popup-content'),
-            popupBtn = document.querySelectorAll('.popup-btn'),
-            popupClose = document.querySelector('.popup-close');
+            popupBtn = document.querySelectorAll('.popup-btn');
         let count = 0;
-        console.log(screenWidth);
 
 
         popupBtn.forEach((elem) => {
@@ -124,12 +115,54 @@ window.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
+        popup.addEventListener('click', (event) => {
+            let target = event.target;
+            if (target.classList.contains('popup-close')) {
+                popup.style.display = 'none';
+            } else {
+                target = target.closest('.popup');
+                if (target) {
+                    popup.style.display = 'none';
+                }
+            }
 
-        popupClose.addEventListener('click', () => {
-            popup.style.display = 'none';
+
         });
     };
     togglePopup();
-    console.log(screen.width);
-});
 
+
+    // табы
+
+    const tabs = () => {
+        const tabHeader = document.querySelector('.service-header'),
+            tab = tabHeader.querySelectorAll('.service-header-tab'),
+            tabContent = document.querySelectorAll('.service-tab');
+        const toggleTabContent = (index) => {
+            for (let i = 0; i < tabContent.length; i++) {
+                if (index === i) {
+                    tab[i].classList.add('active');
+                    tabContent[i].classList.remove('d-none');
+                } else {
+                    tab[i].classList.remove('active');
+                    tabContent[i].classList.add('d-none');
+
+                }
+            }
+        };
+        tabHeader.addEventListener('click', (event) => {
+            let target = event.target;
+            target = target.closest('.service-header-tab');
+            if (target) {
+                tab.forEach((item, i) => {
+                    if (item === target) {
+                        toggleTabContent(i);
+                    }
+                });
+            }
+        });
+    };
+
+    tabs();
+});
+console.log();
