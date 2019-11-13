@@ -62,7 +62,6 @@ window.addEventListener('DOMContentLoaded', function () {
                 menu.style.transition = 'none';
             } else {
                 menu.style.transition = '1s';
-
             }
         };
         btnMenu.addEventListener('click', handlerMenu);
