@@ -1,6 +1,6 @@
 window.addEventListener('DOMContentLoaded', function () {
     'use strict';
-    let screenWidth;
+    let screenWidth = document.documentElement.clientWidth;
     window.onresize = function() {
         screenWidth = document.documentElement.clientWidth;
         console.log('Произошло изменение разрешения экрана');
@@ -62,21 +62,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 menu.style.transition = 'none';
             } else {
                 menu.style.transition = '1s';
+
             }
         };
         btnMenu.addEventListener('click', handlerMenu);
         // closeBtn.addEventListener('click', handlerMenu);
         // menuItems.forEach((elem) => elem.addEventListener('click', handlerMenu));
 
-
-        //Этот работает, но какая-то каша.
-       /* menu.addEventListener('click', () => {
-            if (event.target.tagName === 'A') {
-                handlerMenu(event);
-            }
-        });*/
-
-        //Этот код не работает
         menu.addEventListener('click', event => {
             const target = event.target;
             if (target.tagName === 'A') {
