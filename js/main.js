@@ -268,5 +268,35 @@ window.addEventListener('DOMContentLoaded', function () {
 
     slider();
 
+
+    //Замена фото при hover
+    const changePhoto = () => {
+        const img = document.querySelectorAll('.command__photo');
+        let src;
+        //При hover меняем src на data-src
+        img.forEach((elem) => elem.addEventListener('mouseenter',() => {
+            src = elem.src;
+            elem.src = elem.dataset.img;
+        }));
+
+        //При отводе мышки с элемента возвращаем изначальное значение src
+        img.forEach((elem) => elem.addEventListener('mouseout',() => {
+            elem.src = src;
+        }));
+
+    };
+    changePhoto();
+
+
+    //Валидация input
+    const inputValidation = () => {
+        const inputs = document.querySelectorAll('input[type="number"]');
+        console.log(inputs);
+        inputs.forEach((elem) => elem.addEventListener('input',() => {
+            elem.value = elem.value.replace(/\D/g, '');
+        }));
+
+    };
+    inputValidation();
 });
 console.log();
