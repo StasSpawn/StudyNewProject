@@ -1,0 +1,19 @@
+.block-main {
+  background-color: #ebebeb;
+  width: 300px;
+  padding: 30px;
+}
+
+.list {
+  margin: 15px 0;
+  padding-left: 0;
+}
+
+.list-item {
+  border: 1px solid #bdb7bd;
+  border-radius: 7px;
+}
+
+.list-item-crossed {
+  text-decoration: line-through;
+}
