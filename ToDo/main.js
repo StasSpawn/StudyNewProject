@@ -2,38 +2,28 @@ window.addEventListener('DOMContentLoaded', function () {
     'use strict';
 
 
-    const button = document.querySelector('.button'),
-        input = document.querySelector('.input'),
-        list = document.querySelector('.list');
+    const ol = document.querySelector('ol'),
+        addBtn = document.querySelector('button'),
+        input = document.querySelector('input'),
+        span = document.querySelector('span');
 
-    let listItems = document.querySelectorAll('.list-item');
+    ol.addEventListener('click', (e) => {
+        e.target.classList.toggle('done');
+    });
 
-    const addListItem = () => {
-        // input.value.replace(/\d/g, '');
-        button.addEventListener('click', () => {
-            if (input.value === '') {
-                alert('Введите название задачи');
-            } else {
-                let newlistItem = document.createElement('li');
-                newlistItem.className = 'list-item';
-                newlistItem.textContent = input.value;
-                list.appendChild(newlistItem);
-                input.value = '';
-                listItems = document.querySelectorAll('.list-item');
-                console.log(`Количество элементов ${listItems.length}`);
-            }
-        });
+    const addLi = () => {
+        if(input.value === ''){
+            alert('Вы не ввели задачу!');
+        } else{
+            let newLi = document.createElement('li');
+            newLi.appendChild(document.createTextNode(input.value));
+            ol.appendChild(newLi);
+            input.value = '';
+        }
     };
-    addListItem();
 
-    const clickOnListItem = () => {
-        listItems.forEach((elem) => elem.addEventListener('click', () => {
-            console.log(elem);
-            let target = event.target;
-            target.classList.toggle('list-item-crossed');
-        }));
+    addBtn.addEventListener('click', addLi);
 
-    };
-    clickOnListItem();
+    console.log(ol.length);
 });
 console.log();
