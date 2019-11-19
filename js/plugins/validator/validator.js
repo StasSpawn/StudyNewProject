@@ -16,13 +16,12 @@ class Validator {
         this.elementsForm.forEach(elem => elem.addEventListener('change', this.checkIt.bind(this)));
         this.form.addEventListener('submit', e => {
             e.preventDefault();
+            console.log(this);
             this.elementsForm.forEach(elem => this.checkIt({target: elem}));
             if (this.error.size) {
                 e.preventDefault();
             }
         });
-
-
     }
 
     isValid(elem){
@@ -40,15 +39,15 @@ class Validator {
 
         if (this.method) {
             const method = this.method[elem.id];
+            // console.log(elem.className);
+            // console.log(elem.id);
+            console.log(elem);
             if (method) {
                 return method.every(item => validatorMethod[item[0]](elem, this.pattern[item[1]]));
             }
         } else {
             console.warn('1');
         }
-
-
-
         return true;
     }
 
@@ -62,7 +61,7 @@ class Validator {
             this.showError(target);
             this.error.add(target);
         }
-        console.log(this.error);
+        // console.log(this.error);
     }
 
     showError(elem){
@@ -105,13 +104,19 @@ class Validator {
 
     setPattern() {
 
+        if (!this.pattern.name) {
+            this.pattern.name = /[А-Яа-яЁё]$/;
+        }
         if (!this.pattern.phone) {
             this.pattern.phone = /^\+?[78]([-()]*\d){10}$/;
         }
         if (!this.pattern.email) {
             this.pattern.email = /^\w+@\w+\.\w{2,}$/;
         }
+        if (!this.pattern.textArea) {
+            this.pattern.textArea = /[А-Яа-яЁё]$/;
+        }
 
-        console.log(this.pattern);
+        console.log();
     }
 }
