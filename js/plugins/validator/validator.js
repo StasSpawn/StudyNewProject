@@ -46,7 +46,7 @@ class Validator {
                 return method.every(item => validatorMethod[item[0]](elem, this.pattern[item[1]]));
             }
         } else {
-            console.warn('1');
+            console.warn('Необходимо передать');
         }
         return true;
     }
@@ -61,7 +61,7 @@ class Validator {
             this.showError(target);
             this.error.add(target);
         }
-        // console.log(this.error);
+        console.log(this.error);
     }
 
     showError(elem){

@@ -111,12 +111,13 @@ window.addEventListener('DOMContentLoaded', function () {
             let target = event.target;
             if (target.classList.contains('popup-close')) {
                 popup.style.display = 'none';
-            } else {
+            }
+            /*else {
                 target = target.closest('.popup');
                 if (target) {
                     popup.style.display = 'none';
                 }
-            }
+            }*/
 
 
         });
