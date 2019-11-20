@@ -365,25 +365,5 @@ window.addEventListener('DOMContentLoaded', function () {
     };
 
     sendForm();
-
-    //send ajax
-
-    const sendForm = () => {
-        const errorMessage = 'Что-то пошло не так!',
-            loadMessage = 'Загрузка...',
-            successMessage = 'Спасибо!';
-
-        const form = document.getElementById('form1');
-
-        const statusMessage = document.createElement('div');
-        statusMessage.textContent = 'Тут будет сообщение';
-        statusMessage.style.cssText = 'font-size: 2rem;';
-
-        form.addEventListener('submit', (event) => {
-            //event.preventDefault();
-        });
-    };
-
-    sendForm();
 });
 console.log();
