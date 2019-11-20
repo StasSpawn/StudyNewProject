@@ -15,7 +15,6 @@ class Validator {
         this.setPattern();
         this.elementsForm.forEach(elem => elem.addEventListener('change', this.checkIt.bind(this)));
         this.form.addEventListener('submit', e => {
-            //e.preventDefault();
             console.log(this);
             this.elementsForm.forEach(elem => this.checkIt({target: elem}));
             if (this.error.size) {
@@ -114,7 +113,7 @@ class Validator {
             this.pattern.email = /^\w+@\w+\.\w{2,}$/;
         }
         if (!this.pattern.textArea) {
-            this.pattern.textArea = /[А-Яа-яЁё]$/;
+            this.pattern.textArea = /^[А-Яа-яЁё\s]*\s$/;
         }
 
         console.log();
