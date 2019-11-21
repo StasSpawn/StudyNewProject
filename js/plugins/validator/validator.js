@@ -113,9 +113,11 @@ class Validator {
             this.pattern.email = /^\w+@\w+\.\w{2,}$/;
         }
         if (!this.pattern.textArea) {
-            this.pattern.textArea = /^[А-Яа-яЁё\s]*\s$/;
+            this.pattern.textArea = /[А-Яа-яЁё]$/;
         }
 
         console.log();
     }
+
+
 }

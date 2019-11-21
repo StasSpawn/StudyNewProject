@@ -291,10 +291,17 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //Валидация input
     const inputValidation = () => {
-        const inputs = document.querySelectorAll('input[type="number"]');
-        inputs.forEach((elem) => elem.addEventListener('input',() => {
-            elem.value = elem.value.replace(/\D/g, '');
+        const inputsNumb = document.querySelectorAll('input[type="tel"]');
+        inputsNumb.forEach((elem) => elem.addEventListener('input',() => {
+            elem.value = elem.value.replace(/[^\d+]/g, '');
         }));
+
+        const inputsText = document.querySelectorAll('input[type="text"]');
+        inputsText.forEach((elem) => elem.addEventListener('input',() => {
+            elem.value = elem.value.replace(/\d/g, '');
+        }));
+
+
 
     };
     inputValidation();
@@ -439,5 +446,11 @@ window.addEventListener('DOMContentLoaded', function () {
     };
 
     sendForm();
+
+    //input validation
+    // const inputValidation = () => {
+    //
+    // };
+    // inputValidation();
 });
 console.log();
