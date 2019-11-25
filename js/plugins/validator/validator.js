@@ -38,9 +38,6 @@ class Validator {
 
         if (this.method) {
             const method = this.method[elem.id];
-            // console.log(elem.className);
-            // console.log(elem.id);
-            console.log(elem);
             if (method) {
                 return method.every(item => validatorMethod[item[0]](elem, this.pattern[item[1]]));
             }
@@ -60,7 +57,6 @@ class Validator {
             this.showError(target);
             this.error.add(target);
         }
-        console.log(this.error);
     }
 
     showError(elem){

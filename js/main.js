@@ -377,7 +377,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 body[key] = val;
             });
             postData(body)
-                .then(statusMessage.textContent = successMessage)
+                .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error('status now 200');
+                    }
+                    statusMessage.textContent = successMessage;
+
+                })
                 .catch(error => console.error(error));
         });
 
@@ -391,7 +397,13 @@ window.addEventListener('DOMContentLoaded', function () {
                 body[key] = val;
             });
             postData(body)
-                .then(statusMessage.textContent = successMessage)
+                .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error('status now 200');
+                    }
+                    statusMessage.textContent = successMessage;
+
+                })
                 .catch(error => console.error(error));
         });
 
@@ -406,7 +418,14 @@ window.addEventListener('DOMContentLoaded', function () {
                 body[key] = val;
             });
             postData(body)
-                .then(statusMessage.textContent = successMessage)
+
+                .then((response) => {
+                    if (response.status !== 200) {
+                        throw new Error('status now 200');
+                    }
+                    statusMessage.textContent = successMessage;
+
+                })
                 .catch(error => console.error(error));
 
         });
@@ -414,7 +433,16 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
         const postData = (body) => {
-            return new Promise((resolve, reject) => {
+            return fetch('./server.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            });
+
+
+            /*return new Promise((resolve, reject) => {
                 const request = new XMLHttpRequest();
                 const inputs = document.querySelectorAll('input');
                 request.addEventListener('readystatechange', () => {
@@ -433,7 +461,7 @@ window.addEventListener('DOMContentLoaded', function () {
                 request.open('POST', './server.php');
                 request.setRequestHeader('Content-Type', 'application/json');
                 request.send(JSON.stringify(body));
-            });
+            });*/
 
 
         };
