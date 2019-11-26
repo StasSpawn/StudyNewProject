@@ -5,7 +5,7 @@ const sendForm = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо!';
 
-    const form = document.querySelector('form');
+    const form = document.getElementById('form1');
     // const form = document.getElementById('form1');
     const form2 = document.getElementById('form2');
     const form3 = document.getElementById('form3');

@@ -1,6 +1,11 @@
 import countTimer from "./countTimer";
 
 const toggleMenu = () => {
+    let screenWidth = document.documentElement.clientWidth;
+    window.onresize = function() {
+        screenWidth = document.documentElement.clientWidth;
+        console.log('Произошло изменение разрешения экрана');
+    };
     const btnMenu = document.querySelector('.menu'),
         menu = document.querySelector('menu'),
         closeBtn = document.querySelector('.close-btn'),

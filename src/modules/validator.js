@@ -114,6 +114,6 @@ class Validator {
 
         console.log();
     }
-
-
 }
+
+export default Validator;

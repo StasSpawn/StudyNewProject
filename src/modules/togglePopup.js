@@ -1,6 +1,11 @@
 import countTimer from "./countTimer";
 
 const togglePopup = () => {
+    let screenWidth = document.documentElement.clientWidth;
+    window.onresize = function() {
+        screenWidth = document.documentElement.clientWidth;
+        console.log('Произошло изменение разрешения экрана');
+    };
     const popup = document.querySelector('.popup'),
         popupContent = document.querySelector('.popup-content'),
         popupBtn = document.querySelectorAll('.popup-btn');
