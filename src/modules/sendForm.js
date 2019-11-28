@@ -5,27 +5,32 @@ const sendForm = () => {
         loadMessage = 'Загрузка...',
         successMessage = 'Спасибо!';
 
-    const form1 = document.getElementById('form1');
-    // const form = document.getElementById('form1');
-    const form2 = document.getElementById('form2');
-    const form3 = document.getElementById('form3');
+    const allForms = document.querySelectorAll('form');
+    const form1 = document.querySelector('#form1');
+    const form2 = document.querySelector('#form2');
+    const form3 = document.querySelector('#form3');
 
     const statusMessage = document.createElement('div');
     statusMessage.style.cssText = 'font-size: 2rem;';
 
+
+    console.log();
     const sendForms = (formName) => {
         formName.addEventListener('submit', (event) => {
             event.preventDefault();
             formName.appendChild(statusMessage);
             statusMessage.textContent = loadMessage;
             const formData = new FormData(formName);
+            console.log(formData);
             let postData = formData => fetch('./server.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: formData
+
             });
+
 
             postData(formData)
                 .then((response) => {
@@ -39,6 +44,9 @@ const sendForm = () => {
                 .catch(error => console.error(error));
         });
     };
+
+
+
 
     sendForms(form1);
     sendForms(form2);

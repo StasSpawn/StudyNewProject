@@ -80,7 +80,7 @@ valid.init();
 const valid2 = new Validator({
     selector: '#form2',
     pattern: {
-        phone: /^\+380\d{1}$/,
+        phone: /^\+380\d{5}$/,
         zip: /\d{5,6}/,
         name: /[А-Яа-яЁё]$/,
         textArea: /[А-Яа-яЁё]$/
@@ -109,7 +109,7 @@ valid2.init();
 const valid3 = new Validator({
     selector: '#form3',
     pattern: {
-        phone: /^\+380\d{1}$/,
+        phone: /^\+380\d{5}$/,
         zip: /\d{5,6}/,
         name: /[А-Яа-яЁё]$/,
         textArea: /[А-Яа-яЁё]$/
