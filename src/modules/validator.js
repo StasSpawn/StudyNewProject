@@ -106,7 +106,7 @@ class Validator {
             this.pattern.phone = /^\+?[78]([-()]*\d){10}$/;
         }
         if (!this.pattern.email) {
-            this.pattern.email = /^\w+@\w+\.\w{2,}$/;
+            this.pattern.email = /^\w|-|_\+@\w+\.\w{2,}$/;
         }
         if (!this.pattern.textArea) {
             this.pattern.textArea = /[А-Яа-яЁё]$/;

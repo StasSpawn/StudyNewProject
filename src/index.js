@@ -25,7 +25,7 @@ import Validator from "./modules/validator";
 
 
 //timer
-countTimer('11 november 2019');
+countTimer('30 november 2019');
 
 //меню
 toggleMenu();
@@ -55,7 +55,7 @@ sendForm();
 const valid = new Validator({
     selector: '#form1',
     pattern: {
-        phone: /^\+380\d{1}$/,
+        phone: /^\+380\d{5}$/,
         zip: /\d{5,6}/,
         name: /[А-Яа-яЁё]$/,
         textArea: /[А-Яа-яЁё]$/
