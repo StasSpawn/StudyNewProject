@@ -13,14 +13,18 @@ class Validator {
     init(){
         this.applyStyle();
         this.setPattern();
+
         this.elementsForm.forEach(elem => elem.addEventListener('change', this.checkIt.bind(this)));
         this.form.addEventListener('submit', e => {
-            console.log(this);
             this.elementsForm.forEach(elem => this.checkIt({target: elem}));
             if (this.error.size) {
                 e.preventDefault();
             }
         });
+    }
+
+    checkValid(){
+       return !this.error.size;
     }
 
     isValid(elem){
